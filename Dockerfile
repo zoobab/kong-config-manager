@@ -1,5 +1,5 @@
 FROM node:8-alpine
-RUN apk add git
+RUN apk add git perl
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install 
