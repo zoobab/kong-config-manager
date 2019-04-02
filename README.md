@@ -167,6 +167,47 @@ Finally, run `npm test`.
 
 - [kong-mock-server](https://github.com/Maples7/kong-mock-server)
 
+## Docker
+
+Example on how to dump the data to a ```data``` directory (I used kubefwd to forward the services locally so that kong-admin is reachable from localhost):
+
+```
+$ mkdir data
+$ docker run -v $PWD/data:/data --net=host zoobab/kong-config-manager dump --host https://nonplussed-kangaroo-kong-admin:8444
+[INFO] Ready to dump configs of kong instance main...
+[INFO] All Finished!
+$ ./data/
+./data/main
+./data/main/services
+./data/main/services/076a6890-3c7e-4605-9215-c014bd33b898.json
+./data/main/services/555c5c7f-bbc4-4645-b358-fa2d0d85a8ee.json
+./data/main/services/64afe15f-04f6-4df6-ab4e-cccf2d85f234.json
+./data/main/services/908f0691-c0d1-437d-96ab-32a6fbe38a47.json
+./data/main/routes
+./data/main/routes/418707fd-c53d-4d4c-a3ff-7c7dadc639ed.json
+./data/main/routes/78d7f5e2-5780-47c8-acd1-a2634cc1fe16.json
+./data/main/routes/84aa1323-70db-485e-b721-592c527036c4.json
+./data/main/routes/fcea97cd-c65e-42ec-9ffd-484c9ab84d40.json
+./data/main/consumers
+./data/main/consumers/10b6349f-fedd-430c-9acb-192ffc56ba54.json
+./data/main/consumers/601f5841-ffa5-4867-9699-d54bd66bbde9.json
+./data/main/consumers/8deea650-5589-40f9-a0b9-ed9de2520234.json
+./data/main/consumers/95dd2488-0a03-417b-973f-37abe46167cc.json
+./data/main/consumers/ad806c21-6521-4191-968d-d21351a6f5fc.json
+./data/main/plugins
+./data/main/plugins/12e4a336-b048-4dab-964a-6b73f31b10b9.json
+./data/main/plugins/6df9acc7-e580-4378-a7a1-7248aa27ae19.json
+./data/main/plugins/70b4d593-fbae-40c2-84e3-25430c0326b0.json
+./data/main/plugins/78906955-a8bc-4ff0-81a3-6aae880f4cd4.json
+./data/main/plugins/7f8e553c-0441-4db8-a545-83d73e1e68dc.json
+./data/main/plugins/80f368ed-7c77-4139-ae22-621296ff13af.json
+./data/main/plugins/97d49676-e4af-4596-b845-c3c9a097450b.json
+./data/main/plugins/9c91fa2a-c379-4cc2-afc9-dbc3d08c33f7.json
+./data/main/certificates
+./data/main/snis
+./data/main/upstreams
+```
+
 ## License
 
 [GPLv3](LICENSE)
